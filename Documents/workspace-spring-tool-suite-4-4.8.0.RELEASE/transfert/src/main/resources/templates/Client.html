@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Transfer</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div>
+<a th:href="@{form}"> Insert new Client </a>
+
+</div>
+<div class="container spacer">
+
+<form th:action="@{index}" method="get">
+<div class="form-group">
+<label>Nom de Client:</label>
+<input type="text" name="nom"/>
+<button type="submitt" class="active">chercher</button>
+</div>
+</form> </div>
+<div class="container spacer">
+<table class="table table-striped">
+<thead>
+<tr>
+ <th>nom</th> <th>prenom</th> <th>email</th> <th>telephone</th>  <th>delete</th> <th>edit</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr th:each="c:${clients}">
+<td th:text="${c.nom}"> </td>
+<td th:text="${c.prenom}"> </td>
+<td th:text="${c.email}"> </td>
+<td th:text="${c.telephone}"> </td>
+<td>  <a onclick="return confirm('Are you sure ?')" th:href="@{supprimer(id=${c.id})}">Delete</a></td>
+<td>  <a th:href="@{edit(id=${c.id})}">Change</a></td>
+ </tr>
+ </tbody>
+</table>
+
+</div>
+<div class="container">
+<ul class="nav nav-pills">
+<li th:each="p:${pages}" class="active" >
+<a th:text="${p}" th:href="@{index(p=${p})}"></a>
+</li>
+</ul>
+</div>
+<div>
+<h1 class="">Espace Compte</h1>
+</div>
+<div class="container spacer">
+<table class="table table-striped">
+<thead>
+<tr>
+ <th>num</th> <th>montant</th> <th>id client</th> 
+ </tr>
+ </thead>
+ <tbody>
+ <tr th:each="o:${comptes}" >
+<td th:text="${o.num}"> </td>
+<td th:text="${o.montant}"> </td>
+<td th:text="${o.idc}"> </td>
+ </tr>
+ </tbody>
+</table>
+
+
+</body>
+</html>

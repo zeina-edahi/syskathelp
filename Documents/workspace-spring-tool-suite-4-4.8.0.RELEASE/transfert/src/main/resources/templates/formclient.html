@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Transfer</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+<head>
+<meta charset="UTF-8">
+<br> </br>
+<title>Insert Client</title>
+</head>
+<body>
+<div class="col-md-6 col-sm-6 col-xs-12 col-md-offest-3">
+<div class="panel panel-default " >
+  <div class="panel-heading "> Insert client </div>
+  <div class="panel-body">
+  <form th:action="@{saveClient}" method="post" th:object="${Client}">
+  <div class="form-group">
+  <label class="control-label"> First Name:</label>
+  <input type="text" th:field="*{nom}" class="form-control"/>
+  <span></span>
+   </div>
+   <div class="form-group">
+  <label class="control-label">last Name:</label>
+  <input type="text" th:field="*{prenom}" class="form-control"/>
+  <span></span>
+   </div>
+    
+    <div class="form-group">
+  <label class="control-label">Email:</label>
+  <input type="text" th:field="*{email}" class="form-control"/>
+  <span></span>
+   </div>
+   <div class="form-group">
+   <label class="control-label">Telephone:</label>
+  <input type="text" th:field="*{telephone}" class="form-control"/>
+  <span></span>
+   </div>
+   <div><button type="submit" class="btn btn-primary">Save Client</button></div>
+  </form>
+  </div>
+  </div>
+  </div>
+</body>
+</html>
