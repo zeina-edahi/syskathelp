@@ -27,10 +27,11 @@ public Compte() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Compte(String num, long montant) {
+public Compte(String num, long montant ) {
 	super();
 	this.num = num;
 	this.montant = montant;
+	
 	
 }
 public String getNum() {

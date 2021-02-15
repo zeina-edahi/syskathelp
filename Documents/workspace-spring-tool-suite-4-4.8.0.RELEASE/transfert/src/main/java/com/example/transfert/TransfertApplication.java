@@ -36,8 +36,6 @@ public class TransfertApplication {
 		cr.save(new Client(15 ,"med" ,"sid" , "sid@gmail.com","46464600"));
 	   //cr.deleteById((long) 1);
 	  
-	   
-	   
 		CompteRepository cr1 = ctx.getBean(CompteRepository.class);
 		cr1.save(new Compte("1234", 10000));
 		cr1.save(new Compte("1235", 2000));

@@ -23,7 +23,7 @@ public interface ClientRepository extends JpaRepository<Client,Long>{
 	
 	public Client findById(long id);
 	//public Page<Client> findById(long id,Pageable pageable);
-	@Query("select e from Client e where e.nom like :x ")
-	public Page<Client> chercherClients(@Param("x")String nom,Pageable pageable);
+	@Query("select e from Client e where e.nom like :x")
+	public Page<Client> chercherClients(@Param("x")String mc,Pageable pageable);
 	
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Compte Information</title>
+<title>Transfer</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+
+<div class="container spacer">
+<table class="table table-striped">
+<thead>
+<tr>
+ <th>num</th> <th>montant</th> <th>id client</th> 
+ </tr>
+ </thead>
+ <tbody>
+ <tr th:each="o:${comptes}" >
+<td th:text="${o.num}"> </td>
+<td th:text="${o.montant}"> </td>
+<td th:text="${o.idc}"> </td>
+ </tr>
+ </tbody>
+</table>
+</body>
+</html>

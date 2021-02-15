@@ -31,5 +31,5 @@ public interface CompteRepository extends JpaRepository<Compte,String> {
 	@Modifying(clearAutomatically = true)
 	public void retirer (@Param("x")String num ,@Param("y") long montant);
 	@Query("select e from Compte e where e.num like :x ")
-	public Page<Compte> chercherCompte(@Param("x")String num,Pageable pageable);
+	public Page<Compte> chercherCompte(@Param("x")String mc,Pageable pageable);
 }
