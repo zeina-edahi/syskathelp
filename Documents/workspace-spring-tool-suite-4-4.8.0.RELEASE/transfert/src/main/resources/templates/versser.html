@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Operation</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body><br><br>          <br>    <br><br>               
+<div   class="card bg-primary text-white shadow">
+                                        <div class="card-body">
+                                                  
+
+<div class="container spacer">
+<form th:action="@{versser}"  method="get">
+<div class="panel panel-heading"></div>
+
+
+<div class="container spacer">
+<form th:action="@{versser}"  method="get">
+<div class="form-group">
+<h3 style="color:gray"> Numero compte </h3>
+<input class="form-control" type="text" name="compte1" th:value="${compte1}"/>
+<h3 style="color:gray">  Montant a verser </h3>
+<input class="form-control" type="text" name="montant" th:value="${montant}" /><br>
+<button type="submitt" class="btn btn-secondary"> &nbsp;&nbsp; Versser &nbsp;&nbsp; </button>
+</div>
+</form> </div> </div>
+
+                              </div>
+</body>
+</html>

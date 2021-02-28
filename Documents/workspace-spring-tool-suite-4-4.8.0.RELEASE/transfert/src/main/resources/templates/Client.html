@@ -8,36 +8,36 @@
 
 </head>
 <body>
+<div   class="card bg-primary text-white shadow">
+                                        <div class="card-body"> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                          <a  style="color: rgb(0, 204, 0); font-size:20px" th:href="@{formcompte}">Ajouter Compte</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                         &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                                         <a style="color: rgb(255, 128, 0);font-size:20px" th:href="@{form}">Ajouter Client</a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                        <a style="color: rgb(0, 0, 255);font-size:20px" th:href="@{compte}">consulter le Compte </a>
+                                      <br>     
+</div></div>
 
-<div class="container spacer">
 
-<form th:action="@{index}" method="get">
-<div class="form-group">
-<label>Nom de Client:</label>
-<input type="text" name="nom" th:value="${motCle}"/>
-<button type="submitt" class="btn btn-primary">Chercher</button>
-
-<button type="submit" class="btn btn-primary" > <a style="color: white;"  th:href="@{form}">Ajouter client </a></button>
-</div>
-</form> </div>
 <div class="container spacer">
 <table class="table table-striped">
 <thead>
 <tr>
- <th>Nom</th> <th>Prenom</th> <th>Email</th> <th>Telephone</th>    <th>Supprimer</th> <th>Editer</th> <th>Compte Info</th>
+ <th>Id</th><th>Nom</th> <th>Prenom</th> <th>Email</th> <th>Telephone</th>    <th>Supprimer</th> <th>Editer</th>  
  </tr>
  </thead>
  <tbody>
  
  <tr th:each="c:${clients}"  >
+ <td th:text="${c.id}"> </td>
 <td th:text="${c.nom}"> </td>
 <td th:text="${c.prenom}"> </td>
 <td th:text="${c.email}"> </td>
 <td th:text="${c.telephone}"> </td>
-<td>  <a onclick="return confirm('Are you sure ?')" th:href="@{supprimer(id=${c.id})}">Delete</a></td>
-<td>  <a th:href="@{edit(id=${c.id})}">Change</a></td>
-<td>  <a th:href="@{compte}">consulter le Compte</a></td>
+<td> <button> <a onclick="return confirm('Are you sure ?')" th:href="@{supprimer(id=${c.id})}">Supprimer</a> </button></td>
+<td> <button > <a th:href="@{edit(id=${c.id})}">Changer</a> </button></td>
+
  </tr>
+
  
  </tbody>
 </table>
@@ -45,7 +45,7 @@
 <div class="container">
 <ul class="nav nav-pills">
 <li th:each="p:${pages}" class="active" >
-<a th:text="${p}" th:href="@{index(p=${p},motCle=${motCle})}"></a>
+<a th:text="${p}" th:href="@{index(p=${p})}"></a>
 </li>
 </ul>
 </div>

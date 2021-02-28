@@ -12,8 +12,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class Client {
 	@Id 
-	
-private long id;
+	@GeneratedValue()
+	 
+public long id;
 private String nom;
 private String prenom;
 private String email;
@@ -31,27 +32,26 @@ public void setComptes( List<Compte> comptes) {
 }
 
 
-public Client() {
-	super();
-	// TODO Auto-generated constructor stub
-}
-
-public Client(long id, String nom, String prenom, String email, String telephone) {
-	super();
-	this.id = id;
-	this.nom = nom;
-	this.prenom = prenom;
-	this.email = email;
-	this.telephone = telephone;
-}
-
-
 public long getId() {
 	return id;
 }
 public void setId(long id) {
 	this.id = id;
 }
+public Client() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+public Client(String nom, String prenom, String email, String telephone) {
+	super();
+	
+	this.nom = nom;
+	this.prenom = prenom;
+	this.email = email;
+	this.telephone = telephone;
+}
+
 
 public String getNom() {
 	return nom;

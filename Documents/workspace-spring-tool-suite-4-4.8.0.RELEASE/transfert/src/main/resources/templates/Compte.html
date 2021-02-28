@@ -1,29 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Compte Information</title>
+<meta charset="utf-8"/>
 <title>Transfer</title>
 <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
 <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+
 </head>
 <body>
-
-
+<div   class="card bg-primary text-white shadow">
+                                        <div class="card-body"> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                          <a  style="color: rgb(20, 21, 23); font-size:20px" th:href="@{retir}">Retirer</a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                         &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                         <a style="color: rgb(20, 21, 23);font-size:20px" th:href="@{vers}">Verser</a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                        <a style="color: rgb(20, 21, 23);font-size:20px" th:href="@{vir}">Virer </a>
+                                      <br>     
+</div></div>
+ <br> 
+  <br> 
+<div class="container spacer">
 <div class="container spacer">
 <table class="table table-striped">
 <thead>
 <tr>
- <th>num</th> <th>montant</th> <th>id client</th> 
+ <th>Numero</th> <th>Montant</th> <th>ID Client</th>    
  </tr>
  </thead>
  <tbody>
- <tr th:each="o:${comptes}" >
-<td th:text="${o.num}"> </td>
-<td th:text="${o.montant}"> </td>
-<td th:text="${o.idc}"> </td>
+ 
+ <tr th:each="c:${Comptes}"  >
+<td  th:text="${c.num}"> </td>
+<td th:text="${c.montant}"> </td>
+<td th:text="${c.clientid}"> </td>
+
+
+
  </tr>
+ 
  </tbody>
 </table>
+</div>
+<div class="container">
+<ul class="nav nav-pills">
+<li th:each="p:${pages}" class="active" >
+<a th:text="${p}" th:href="@{Compte}"></a>
+</li>
+</ul>
+</div>
+
+
+
+
 </body>
 </html>

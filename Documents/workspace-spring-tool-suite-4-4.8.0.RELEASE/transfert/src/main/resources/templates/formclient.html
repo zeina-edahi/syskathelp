@@ -9,36 +9,44 @@
 <title>Insert Client</title>
 </head>
 <body>
-<div class="col-md-6 col-sm-6 col-xs-12 col-md-offest-3">
+<h2 style="color:gray" >Inserer Information du Client</h2>
+<br>
+<div  class="col-md-6 col-sm-12 col-xs-6 col-md-offest-90">
+
 <div class="panel panel-default " >
-  <div class="panel-heading "> Insert client </div>
+  <div class="panel-heading ">  </div>
   <div class="panel-body">
-  <form th:action="@{saveClient}" method="post" th:object="${Client}">
+  <form  th:action="@{saveClient}" method="post" th:object="${Client}">
   <div class="form-group">
-  <label class="control-label"> First Name:</label>
-  <input type="text" th:field="*{nom}" class="form-control"/>
+  <h4 style="color:gray"> First Name:</h4>
+  <input  type="text" th:field="*{nom}" class="form-control"/>
   <span></span>
    </div>
    <div class="form-group">
-  <label class="control-label">last Name:</label>
+ <h4 style="color:gray">last Name:</h4>
   <input type="text" th:field="*{prenom}" class="form-control"/>
   <span></span>
    </div>
     
     <div class="form-group">
-  <label class="control-label">Email:</label>
+  <h4 style="color:gray">Email:</h4>
   <input type="text" th:field="*{email}" class="form-control"/>
   <span></span>
    </div>
    <div class="form-group">
-   <label class="control-label">Telephone:</label>
-  <input type="text" th:field="*{telephone}" class="form-control"/>
+  <h4 style="color:gray">Telephone:</h4>
+  <input  type="text" th:field="*{telephone}" class="form-control"/>
   <span></span>
    </div>
-   <div><button type="submit" class="btn btn-primary">Save Client</button></div>
+   <br>
+   <div><button type="submit" class="btn btn-secondary">Save Client</button></div>
   </form>
   </div>
   </div>
   </div>
+  
+
+  
+  
 </body>
 </html>

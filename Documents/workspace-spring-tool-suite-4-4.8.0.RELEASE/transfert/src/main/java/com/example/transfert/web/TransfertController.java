@@ -22,6 +22,8 @@ import com.example.transfert.dao.ClientRepository;
 import com.example.transfert.dao.CompteRepository;
 import com.example.transfert.entities.Client;
 import com.example.transfert.entities.Compte;
+import com.example.transfert.metier.TransfertMetierImp;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -31,21 +33,22 @@ public class TransfertController {
 	@Autowired
 private ClientRepository clientrepository;
 	@Autowired
+	private TransfertMetierImp transfertmetier;
+	@Autowired
 	private CompteRepository compterepository;
 	
 	@RequestMapping("/index")
-	public String index(Model model,@RequestParam(name="p",defaultValue="0")int p, @RequestParam(name="motCle",defaultValue="")String mc){
-		
+	public String index(Model model ,@RequestParam(name="page",defaultValue="0")int p) {
 	//Page<Client> lc = clientrepository.chercherClients("%"+mc+"%", new  QPageRequest(p,10));
 		//Page<Client> lc = clientrepository.chercherClients(mc, new   QPageRequest(p, 5));
-		Page<Client> lc = clientrepository.findAll(new QPageRequest(p, 10));
+		Page<Client> lc = clientrepository.findAll(new QPageRequest(p,100));
 		int pC=lc.getTotalPages();
 		int[] pages = new int[pC];
-		for(int i=0;i<pC;i++)pages[i]=i;
+		for(int i=0;i<pC;i++) pages[i]=i;
 		model.addAttribute("pages",pages);
 		model.addAttribute("clients",lc);
 		model.addAttribute("pageCourante",p);
-		model.addAttribute("motCle",mc);
+	
 		return "client";
 		}
 	
@@ -62,7 +65,12 @@ private ClientRepository clientrepository;
 			}
 	   @RequestMapping(value="/supprimer")
 		 public String supprimer(long id) {
+		  // Compte c = compterepository.getOne(id);
+		   compterepository.deleteById(id);
 		   clientrepository.deleteById(id);
+		 
+		   
+		 //  clientrepository.deleteById(id);
 		 //  clientrepository.deleteById(id);
 		   return "redirect:index";
 		   
@@ -85,21 +93,83 @@ private ClientRepository clientrepository;
 		
 		
 		return "redirect:index";
+		
+	   }
+	   
+	   
+	   @RequestMapping("/compte")
+		public String compte(Model model,@RequestParam(name="page",defaultValue="0")int c){
+		   
+			@SuppressWarnings("deprecation")
+			Page<Compte> pagecomptes = compterepository.findAll(new QPageRequest(c,10));
+			Page<Compte> pagecompte = compterepository.findAll(new QPageRequest(c, 2));
+			int pagescount=pagecomptes.getTotalPages();
+			int[] pages = new int[pagescount];
+			for(int i=0;i<pagescount;i++)pages[i]=i;
+			model.addAttribute("Comptes",pagecomptes);
+			model.addAttribute("pages",pages);
+			model.addAttribute("pageComptes",pagecomptes);
+		
+			return "compte";
+			
+			}
+	   
+	  
+	   @RequestMapping(value="/retirer" , method= RequestMethod.GET)
+		public String retirer(String compte1,long montant){
+		 transfertmetier.retirer(compte1, montant);
+		return "redirect:compte";
+	   }
+	   @RequestMapping(value="/versser" , method= RequestMethod.GET)
+	 		public String versser(String compte1,long montant){
+	 		 compterepository.versser(compte1, montant);
+	 		return "redirect:compte";
+	 		
+	 	   }
+	   @RequestMapping(value="/virement" , method= RequestMethod.GET)
+		public String virement(String compte1,String compte2,long montant){
+		 compterepository.retirer(compte1, montant);
+		 compterepository.versser(compte2, montant);
+		return "redirect:compte";
+		
+	   }
+	   
+	   @RequestMapping(value="/operation" , method= RequestMethod.GET)
+		public String operation(){
+		//model.addAttribute("Client", new Client());
+		return "operation";
 		}
 	   
-	 
-	   @RequestMapping(value="/compte")
-	   public String index1(Model model,@RequestParam(name="p1",defaultValue="0")int p1){
-			Page<Compte> lc = compterepository.findAll(new QPageRequest(p1, 10));
-			int pC=lc.getTotalPages();
-			int[] pages = new int[pC];
-			for(int i=0;i<pC;i++)pages[i]=i;
-			model.addAttribute("pages",pages);
-			model.addAttribute("compte",lc);	
-			model.addAttribute("pageCourante",p1);
-			
-			return "Compte";
-			}
+	   @RequestMapping(value="/retir" , method= RequestMethod.GET)
+	 		public String retir(){
+	 		//model.addAttribute("Client", new Client());
+	 		return "retirer";
+	 		}
+	   @RequestMapping(value="/vers" , method= RequestMethod.GET)
+		public String vers(){
+		//model.addAttribute("Client", new Client());
+		return "versser";
+		}
+	   @RequestMapping(value="/vir" , method= RequestMethod.GET)
+		public String vir(){
+		//model.addAttribute("Client", new Client());
+		return "virement";
+		}
+
+	   
+	  
+	   @RequestMapping(value="/saveCompte", method= RequestMethod.POST)
+		public String saveCompte(Compte compte){
+		 compterepository.save(compte);
+		 //transfertmetier.addCompte(compte,id);
+			return "redirect:index";
+		
+		}
+	   @RequestMapping(value="/formcompte" , method= RequestMethod.GET)
+		public String formcompte(Model model){
+		model.addAttribute("Compte", new Compte());
+		return "formcompte";
+		}
 }
 	
 	
