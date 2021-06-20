@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:insert="head :: head"></div>
+<meta charset="ISO-8859-1">
+<title>Ajouter Ingenieur </title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+ <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+body{
+background:  #f5f5f5;
+
+}
+ .input-icons i {
+            position: absolute;
+        }
+          
+        .input-icons {
+            width: 10%;
+         
+        }
+          
+        .icons {
+            padding: 5px;
+            min-width: 10px;
+			color: #094D83;
+        }
+
+
+.form{
+
+
+   text-align: center;
+ 
+}
+/* Full-width inputs */
+.in {
+ border-radius: 20px;
+  width: 35%;
+  
+  padding: 10px 10px;
+  margin: 4px 0;
+   border: 3px solid #E5E8E8 ;
+  box-sizing:content-box;
+}
+
+/* Set a style for all buttons */
+button {
+ background-color: #21618C;
+  color:#ffffff;
+  font-size : 15px;
+  padding: 15px 20px;
+  margin: 10px 10px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  width: 220px;
+ 
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 1;
+}
+
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+
+</style>
+</head>
+<body >
+
+<div th:replace="header :: navheader" ></div> 
+<br>
+<div class="main-content">
+<form class="form" th:action="@{saveingenieur}" method="post" th:object="${ingenieur}">
+ 
+  
+  <div class="container">
+
+    <i class="fa fa-id-card icons"> </i>
+    <input class="in" type="text" placeholder=" Nom " name="nom"   required>
+	<br> <br>
+	 <i class="fa fa-id-card icons"> </i>
+    <input class="in"  type="text" placeholder=" Prenom" name="prenom"   required>
+	<br> <br>
+   	<i class="fa fa-phone icons" aria-hidden="true"> </i>
+    <input class="in"  type="text" placeholder=" Telephone" name="telephone"  required>
+    <br> <br>
+   	
+	<i class="fa fa-at icons"> </i>
+    <input class="in" type="text" placeholder="Email" name="email"   required>
+
+	<br> <br>
+    <button type="submit" >Ajouter</button>
+	
+   </div>
+</form>
+</div>
+</body>
+
+</html>

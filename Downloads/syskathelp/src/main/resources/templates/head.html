@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="ISO-8859-1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=tY-i3Yl3aMP3URYTIBS1WQNsJECwxemcs7NWbWgXc6HNBVGHkgsRpkwcGnvg4yk8-3_ptgaLwk4c5asWYAeDUNzjda9fjGUTv5YOlPi7KgOc1JLIWkDUPkneXhEGfqlN1lgw5ftYEO44b6oSINtMNA" charset="UTF-8"></script><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" th:href="@{/nav.css}">
+	 <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		
+
+<style type="text/css">
+.search-box {
+    position: relative;        
+    float: right;
+}
+.search-box input {
+    height: 34px;
+    border-radius: 20px;
+    padding-left: 35px;
+    border-color: #ddd;
+    box-shadow: none;
+}
+.search-box input:focus {
+    border-color:  #21618C;
+}
+.search-box i {
+    color:  #21618C;
+    position: absolute;
+    font-size: 19px;
+    top: 8px;
+    left: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background: #f5f5f5;
+}
+.wrapper{
+  margin: 0px;
+}
+.wrapper .top_navbar{
+  width: calc(100% - 5px);
+  height: 58px;
+  display: flex;
+  position: fixed;
+  top: 0px;
+}
+
+.wrapper .top_navbar .hamburger{
+  width: 70px;
+  height: 100%;
+  background:  #21618C;
+  padding: 15px 17px;
+  border-top-left-radius: 0px;
+  cursor: pointer;
+}
+
+.wrapper .top_navbar .hamburger div{
+  width: 30px;
+  height: 4px;
+  background: #92a6e2;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.wrapper .top_navbar .top_menu{
+  width: calc(100% - 70px);
+  height: 100%;
+  background: #fff;
+  border-top-right-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.wrapper .top_navbar .top_menu .logo{
+  color:  #21618C;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.wrapper .top_navbar .top_menu ul{
+  display: flex;
+  
+  margin: 65px;
+}
+
+
+.wrapper .top_navbar .top_menu ul li a{
+  display: block;
+  margin: 0 5px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border: none;
+  border-radius: 50%;
+  color:  #21618C;
+}
+
+
+.wrapper .top_navbar .top_menu ul li a:hover{
+  background: white;
+  color:  #85C1E9;
+}
+
+.wrapper .top_navbar .top_menu ul li a:hover i{
+  color:  #85C1E9;
+}
+
+.wrapper .sidebar{
+  position: fixed;
+  top: 58px;
+  left: 0px;
+  background:  #21618C;
+  width: 160px;
+  height: calc(100% - 80px);
+  border-bottom-left-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .sidebar ul li a{
+   
+    
+    position: relative;
+    margin-bottom: 1px;
+    white-space: nowrap;
+    padding-left:0.6rem;
+	display:block;
+	color:#fff;
+	font-size:18px;
+}
+#nav-toggle {
+	
+	display:none;
+}
+#nav-toggle:checked + .wrapper .sidebar{	
+	width:70px;
+}
+#nav-toggle:checked + .wrapper .sidebar ul  li{
+		padding-left:1rem;
+		text-align:center;
+}
+#nav-toggle:checked + .wrapper .sidebar ul  li span.text{
+		padding-left:0.8rem;
+		text-align:center;
+		display:none;
+}
+#nav-toggle:checked ~ .main-content{
+	margin-left:70px;
+	}
+img.avatar {
+  width: 55px;
+  height: 55px;
+ margin: 0px;
+
+float:left;
+}
+.wrapper .sidebar ul li a:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #92a6e2;
+  display: none;
+}
+.wrapper .sidebar ul ul{
+ background:  #21618C;
+	position: absolute;
+	opacity: 0;
+	left: 100%;
+	top: 25%;
+	visibility:hidden;
+    transition: all 0.3s;
+}
+.wrapper .sidebar ul li:hover > ul{
+	opacity:1;
+	visibility:visible;
+	
+	  border: 3px solid #f5f5f5;
+  border-radius: 8%;
+    
+}
+.wrapper .sidebar ul li a span.icon{
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.wrapper .sidebar ul li a span.title{
+
+  display: inline-block;
+}
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+  
+  color: #fff;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before{
+  display: block;
+}
+
+.main-content{
+	transition: margin-left 200ms;
+  margin-left: 170px;
+}
+main {
+	
+	margin-top:0px;
+	padding:2rem 1.5rem;
+	background:#f5f5f5;
+	min-height:calc(100vh-90px);
+	
+}
+.cards{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap:1rem;
+}
+
+.card-single1{
+	border-left: 10px solid #5499C7;
+	display: flex;
+	justify-content:space-between;
+	background:#fff;
+	padding:1rem;
+	border-radius:5px;
+}
+
+
+.card-single2{
+	border-left: 10px solid #CD6155;
+	display: flex;
+	justify-content:space-between;
+	background:#fff;
+	padding:1.4rem;
+	border-radius:5px;
+}
+
+.card-single3{
+	border-left: 10px solid #52BE80;
+	display: flex;
+	justify-content:space-between;
+	background:#fff;
+	padding:1.4rem;
+	border-radius:5px;
+}
+.card-single1 span:first-child{
+	size:20px;
+	color:#5499C7;
+	font-size:1.5rem;
+}
+.card-single2 span:first-child{
+	size:20px;
+	color:#CD6155;
+	font-size:1.5rem;
+}
+.card-single3 span:first-child{
+	size:20px;
+	color:#52BE80;
+	font-size:1.5rem;
+}
+@media only screen and (max-width:960px){
+	
+	.cards{
+display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-gap:1rem;
+}
+
+}
+</style>
+<body>
+
+</body>
+</html>
