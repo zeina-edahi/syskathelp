@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:insert="head :: head"></div>
+<meta charset="ISO-8859-1">
+<title>Ajouter Client </title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+ <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style type="text/css">
+body{
+background:  #f5f5f5;
+
+}
+ .input-icons i {
+            position: absolute;
+        }
+          
+        .input-icons {
+            width: 70%;
+         
+        }
+          
+        .icons {
+            padding: 5px;
+            min-width: 10px;
+			color: #21618C;
+        }
+
+
+.form{
+
+
+   text-align: center;
+ 
+}
+/* Full-width inputs */
+
+.in {
+ border-radius: 20px;
+  width: 35%;
+  
+  padding: 10px 10px;
+  margin: 4px 0;
+   border: 3px solid #E5E8E8 ;
+  box-sizing:content-box;
+}
+body {
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Set a style for all buttons */
+button {
+ 
+  background-color: #21618C;
+  color:#ffffff;
+  font-size : 15px;
+  padding: 15px 20px;
+  margin: 10px 10px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  width: 220px;
+ 
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 1;
+}
+
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+
+</style>
+</head>
+<body >
+
+<div th:replace="header :: navheader" ></div> 
+
+
+<div class="main-content">
+<form class="form" th:action="@{saveclient}" method="post" th:object="${Client}">
+ 
+
+  
+  <div class="container">
+
+    <i class="fa fa-user icons"> </i>
+    <input class="in" type="text" placeholder=" Nom complet" name="nom"   required>
+	<br> <br>
+	 <i class="fa fa-building icons"> </i>
+    <input   class="in" type="text" placeholder=" Nom de la Societe" name="nomsociete"   required>
+	<br> <br>
+   	<i class="fa fa-phone icons" aria-hidden="true"> </i>
+    <input  class="in" type="text" placeholder=" Telephone" name="telephone"  required>
+    <br> <br>
+   	<i class="fa fa-address-card icons" aria-hidden="true"> </i>
+    <input  class="in" type="text" placeholder="Adresse" name="address"   required>
+	<br> <br>
+	<i class="fa fa-at icons"> </i>
+    <input  class="in" type="text" placeholder="Email" name="email"   required>
+	<br> <br>
+   	<i class="fa fa-lock icons" aria-hidden="false"> </i>
+    <input  class="in" type="password" placeholder=" Mot de passe" name="motdepasse"   required>
+	<br> 
+    <button type="submit" >Ajouter</button>
+	
+   </div>
+</form>
+</div>
+</body>
+
+</html>

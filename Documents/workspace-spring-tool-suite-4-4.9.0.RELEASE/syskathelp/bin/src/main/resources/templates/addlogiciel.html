@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:insert="head :: head"></div>
+<meta charset="ISO-8859-1">
+<title>Ajouter Logiciel</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+ <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+body{
+background:  #f5f5f5;
+
+}
+ .input-icons i {
+            position: absolute;
+        }
+          
+        .input-icons {
+            width: 50%;
+         
+        }
+          
+        .icons {
+            padding: 5px;
+            min-width: 10px;
+			color: #21618C;
+        }
+
+
+.form{
+
+
+   text-align: center;
+ 
+}
+/* Full-width inputs */
+.in {
+ border-radius: 20px;
+  width: 35%;
+  
+  padding: 10px 10px;
+  margin: 4px 0;
+   border: 3px solid #E5E8E8 ;
+  box-sizing:content-box;
+}
+body {
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Set a style for all buttons */
+button {
+ 
+  background-color: #21618C;
+  color:#ffffff;
+  font-size : 15px;
+  padding: 15px 20px;
+  margin: 10px 10px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  width: 220px;
+ 
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 1;
+}
+
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+
+</style>
+</head>
+<body >
+
+<div th:replace="header :: navheader" ></div> 
+<br>
+
+ <br>
+  <div class="main-content">
+ 
+<form class="form" th:action="@{updatelogiciel}" method="get" th:object="${client}">
+
+<br>
+    <i class="fa fa-id-badge icons"> </i>
+    <input class="in" type="text" th:value="*{ID}" name="ID" >
+	
+<br>
+
+<br>
+
+<form class="form" th:action="@{updatelogiciel}" method="post" th:object="${logiciel}">
+  
+
+
+    
+	 <i class="fa fa-id-card icons"> </i>
+    <input class="in"  type="text" placeholder=" logiciel" name="nom" ><br> <br>
+	<i class="fa fa-file-code-o icons"> </i>
+    <input class="in"  type="text" placeholder="Version" name="version" >
+	<br> <br>
+	<i class="fa fa-code icons"> </i>
+    <input class="in"  type="text" placeholder="Tech" name="tech" >
+	<br> <br>
+    <button type="submit" >Ajouter</button>
+	
+  </form>
+</form>
+
+</div>
+</body>
+
+</html>

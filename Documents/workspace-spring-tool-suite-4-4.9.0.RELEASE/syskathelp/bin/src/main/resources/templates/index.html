@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Sys Help</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+ <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+
+ .input-icons i {
+            position: absolute;
+        }
+          
+        .input-icons {
+            width: 100%;
+         
+        }
+          
+        .icon {
+            padding: 5px;
+            min-width: 0px;
+			color: #21618C;
+        }
+
+
+.container{
+
+
+   text-align: center;
+ 
+}
+/* Full-width inputs */
+input[type=text], input[type=password] {
+ border-radius: 20px;
+  width: 30%;
+  
+  padding: 10px 10px;
+  margin: 4px 0;
+   border: 3px solid #E5E8E8 ;
+  box-sizing:content-box;
+}
+body {
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Set a style for all buttons */
+button {
+ margin-left:auto;
+
+  background-color: #21618C;
+  color: #ffffff;
+  font-size : 15px;
+  padding: 13px 15px;
+  margin: 15px 15px;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+  width: 160px;
+ 
+ 
+}
+button i {
+    float: left;
+    font-size: 21px;
+    margin-right: 9px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.20;
+}
+
+
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+ 
+}
+
+/* Avatar image */
+img.avatar {
+  width: 13%;
+  border-radius: 50%;
+   border: 5px solid #21618C;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+.title{
+ text-align: center;
+  color: #21618C;
+  font-size:30px;
+}
+
+
+</style>
+
+</head>
+<body id="grad1">
+<br><br>
+<form th:action="@{dashboard}" method="Post">
+  <div class="imgcontainer">
+ 
+ 
+    <img src="/syskathelpproject/src/main/resources/static/images/syshelplogo.png" 
+             th:src="@{/images/syshelplogo.png}" class="avatar"/>
+  </div>
+ 
+  <h1 class="title"> Login </h1>
+  <div class="container">
+    <i class="fa fa-at icon"> </i>
+    <input type="text" placeholder="Nom d'utilisateur" name="Nom d'utilisateur" required>
+	<br><br>
+   	<i class="fa fa-lock icon" aria-hidden="true"> </i>
+    <input type="password" placeholder="Mot de passe" name="psw" required>
+	<br>
+  
+   <button type="submit"> <i class="fa fa-sign-in" aria-hidden="true"></i>  Sign In</button>
+    </div>
+</form>
+
+</body>
+
+</html>

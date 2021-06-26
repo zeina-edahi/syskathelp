@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert ="head :: head">
+<style>
+.search-box {
+    position: relative;        
+    float: right;
+}
+.search-box input {
+    height: 34px;
+    border-radius: 20px;
+    padding-left: 35px;
+    border-color: #ddd;
+    box-shadow: none;
+}
+.search-box input:focus {
+    border-color:  #21618C;
+}
+.search-box i {
+    color:  #21618C;
+    position: absolute;
+    font-size: 19px;
+    top: 8px;
+    left: 10px;
+}
+
+
+</style>
+
+</head>
+<body th:fragment="navheader">
+<input type="checkbox" id="nav-toggle">
+<div id ="wrapper" class="wrapper">
+  <div class="top_navbar">
+    <div class="hamburger">
+    <h2><label for="nav-toggle">
+       <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div>
+       </label></h2>
+    </div>
+    <div class="top_menu">
+      <div class="logo"> <img src="/syskathelpproject/src/main/resources/static/images/syshelp.png" 
+             th:src="@{/images/syshelp.png}" class="avatar"/></div>
+      
+            <ul>  </ul>
+      <ul>
+        <li><div class="search-box">
+                            <i class="material-icons">&#xE8B6;</i>
+                            <input type="search" class="form-control" placeholder="Search&hellip;">
+                        </div> </li>
+          
+          
+        <li><a href="#" class="bells">
+          <i class="fa fa-bell"></i>
+          </a></li>
+        <li><a href="#" class="out">
+          <i class="fa fa-sign-out"><span>Deconnecter</span></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="sidebar">
+      	<ul>
+	            <li><a  th:href="@{dashboard}">
+          <span class="fa fa-tachometer"></span>
+          <span class="text">Dashboard</span></a></li>
+          
+        <li><a th:href="@{dashbord}">
+          <span class="fa fa-ticket"></span>
+          <span class="text" >Tickets</span>
+          </a></li>
+        
+		 
+        <li><a class="liste-btn">
+          <span class="fa fa-list"></span>
+          <span class="text">Listes </span>
+          </a>
+		   <ul class="liste-show">
+		  <li><a th:href="@{listclient}"><span class="fa fa-list-ul"><span class="title">Client</span></span></a></li>
+		  <li><a th:href="@{listingenieur}">  <span class="fa fa-list-ul"><span class="title">Ingenieurs</span></span> </a></li>
+		  <li><a th:href="@{listlogiciel}">  <span class="fa fa-list-ul"><span class="title">Logiciels</span></span> </a></li>
+		  </ul>
+		  </li>
+			</ul>
+     </div>
+  </div>
+<main></main>
+</body>
+</html>
