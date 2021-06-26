@@ -57,11 +57,11 @@ public class ClientService {
 	    	return client;	
 	    }
 	    
-	    public Page<Client> findPagination(int pageNo, int pagesize){
+	    public Page<Client> findPagination(int pageNo, int pagesize,String mc){
 	    	
 	    	Pageable pageable= PageRequest.of(pageNo - 1, pagesize);
 	    	
-	    	return this.clientrepository.findAll(pageable);
+	    	return this.clientrepository.findAll(mc,pageable);
 	    }
 	    
 	    

@@ -121,15 +121,15 @@ public class LogicielController {
 		   }
 	  @GetMapping("/listlogiciel")
 	  public String viewHomePage(Model model) {
-	   return findPaginated(1,model);  
+	   return findPaginated(1,model,"");  
 	  }
 	  
 	
 	  @GetMapping(value="/listlogiciel{pageNo}")
-		public String findPaginated( @PathVariable(value = "pageNo") int pageNo,Model model){//,@PathVariable(value = "pageSize") int pageSize) {
+		public String findPaginated( @PathVariable(value = "pageNo") int pageNo,Model model,@RequestParam(name="motCle",defaultValue="")String mc){//,@PathVariable(value = "pageSize") int pageSize) {
 		int  pageSize=1;
 			//Pageable pageable = PageRequest.of(p,1);
-			Page < logiciel> page = logicielservice.findPagination(pageNo,pageSize);
+			Page < logiciel> page = logicielservice.findPagination(pageNo,pageSize,"%"+mc+"%");
 			//@SuppressWarnings("deprecation")
 			//Page<logiciel> page = logicielrepository.findAll(pageable);
 				List<logiciel> logiciels = page.getContent();
@@ -143,7 +143,7 @@ public class LogicielController {
 			model.addAttribute("totalPages",page.getTotalPages());
 			model.addAttribute("totalItems",page.getTotalElements());
 			model.addAttribute("logiciels",logiciels);
-	
+			model.addAttribute("motCle",mc);
 			return "listlogiciel";
 			}
 	 

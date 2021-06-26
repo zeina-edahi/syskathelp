@@ -52,11 +52,11 @@ public class IngenieurService {
 	    	return Ingenieur;	
 	    }
 	    
-	    public Page<Ingenieur> findPagination(int pageNo, int pagesize){
+	    public Page<Ingenieur> findPagination(int pageNo, int pagesize,String mc){
 	    	
 	    	Pageable pageable= PageRequest.of(pageNo - 1, pagesize);
 	    	
-	    	return this.ingenieurrepository.findAll(pageable);
+	    	return this.ingenieurrepository.findAll(mc,pageable);
 	    }
 	    
 	    

@@ -24,7 +24,7 @@ public Client getOne(@Param("x")Long idC);
 public Client getOnes(@Param("x")String nom);
 	public Optional<Client> findById(Long idC);
 	@Query("select e from Client e where e.nomsociete like :x OR e.nomcomplet like :x")
-	public Page<Client> chercherClients(@Param("x")String mc,Pageable pageable);
+	public Page<Client> findAll(@Param("x")String mc,Pageable pageable);
 	@Query("select e from Client e where e.nomcomplet like :x")
 	public List<Client> chercher(@Param("x")String mc);
 	@Query("select e from Client e where e.idC=:x")

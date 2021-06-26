@@ -19,7 +19,7 @@ public Ingenieur getOne(@Param("x")String nom);
 public Ingenieur getOnes(@Param("x")String nom);
 	public List<Ingenieur> findById(long idI);
 	@Query("select e from Ingenieur e where e.nom like :x")
-	public Page<Ingenieur> chercherIngenieurs(@Param("x")String mc,Pageable pageable);
+	public Page<Ingenieur> findAll(@Param("x")String mc,Pageable pageable);
 	@Query("select e from Ingenieur e where e.nom like :x")
 	public List<Ingenieur> chercher(@Param("x")String mc);
 	@Query("select e from Ingenieur e where e.idI=:x")

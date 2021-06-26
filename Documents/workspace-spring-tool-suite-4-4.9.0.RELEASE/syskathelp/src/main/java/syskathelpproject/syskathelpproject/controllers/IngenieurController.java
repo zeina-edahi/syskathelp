@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import syskathelpproject.syskathelpproject.dao.IngenieurRepository;
 import syskathelpproject.syskathelpproject.dao.LogicielRepository;
 import syskathelpproject.syskathelpproject.entities.Ingenieur;
@@ -87,15 +89,15 @@ private LogicielRepository  logicielrepository;
 	  
 	  @GetMapping("/listingenieur")
 	  public String viewHomePage(Model model) {
-	   return findPaginated(1,model);  
+	   return findPaginated(1,model,"");  
 	  }
 	  
 	
 	  @GetMapping(value="/listingenieur{pageNo}")
-		public String findPaginated( @PathVariable(value = "pageNo") int pageNo,Model model){//,@PathVariable(value = "pageSize") int pageSize) {
+		public String findPaginated( @PathVariable(value = "pageNo") int pageNo,Model model,@RequestParam(name="motCle",defaultValue="")String mc){//,@PathVariable(value = "pageSize") int pageSize) {
 		int  pageSize=1;
 			//Pageable pageable = PageRequest.of(p,1);
-			Page<Ingenieur> page = ingenieurservice.findPagination(pageNo,pageSize);
+			Page<Ingenieur> page = ingenieurservice.findPagination(pageNo,pageSize,"%"+mc+"%");
 			//@SuppressWarnings("deprecation")
 			//Page<Client> page = clientrepository.findAll(pageable);
 				List<Ingenieur> ingenieurs = page.getContent();
@@ -109,7 +111,7 @@ private LogicielRepository  logicielrepository;
 			model.addAttribute("totalPages",page.getTotalPages());
 			model.addAttribute("totalItems",page.getTotalElements());
 			model.addAttribute("ingenieurs",ingenieurs);
-	
+			model.addAttribute("motCle",mc);
 			return "listingenieur";
 			}
 }

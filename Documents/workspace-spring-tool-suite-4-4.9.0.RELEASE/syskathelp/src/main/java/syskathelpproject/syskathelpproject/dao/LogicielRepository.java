@@ -22,7 +22,7 @@ public logiciel getOne(@Param("x")String nom);
 public logiciel getOnes(@Param("x")String nom);
 	public List<logiciel> findById(long idL);
 	@Query("select e from logiciel e where e.nom like :x")
-	public Page<logiciel> chercherlogiciels(@Param("x")String mc,Pageable pageable);
+	public Page<logiciel> findAll(@Param("x")String mc,Pageable pageable);
 	@Query("select e from logiciel e where e.nom like :x")
 	public List<logiciel> chercher(@Param("x")String mc);
 	@Query("select e from logiciel e where e.idL=:x")
@@ -45,6 +45,9 @@ public logiciel getOnes(@Param("x")String nom);
 	public List<String> techlogicielclient();
 	@Query(value="SELECT count(l.idl) from logiciel l",nativeQuery=true)
 	public long count();
+	
+	@Query("select e from logiciel e where e.nom like :x")
+	public Page<logiciel> chercherlogiciels(@Param("x")String mc,Pageable pageable);
 	
 	
 }

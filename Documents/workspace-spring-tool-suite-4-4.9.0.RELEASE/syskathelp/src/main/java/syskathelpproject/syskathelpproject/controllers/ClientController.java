@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import syskathelpproject.syskathelpproject.dao.ClientRepository;
 import syskathelpproject.syskathelpproject.dao.IngenieurRepository;
@@ -124,15 +125,15 @@ public class ClientController {
 	 
 	  @GetMapping("/listclient")
 	  public String viewHomePage(Model model) {
-	   return findPaginated(1,model);  
+	   return findPaginated(1,model,"");  
 	  }
 	  
 	
 	  @GetMapping(value="/listclient{pageNo}")
-		public String findPaginated( @PathVariable(value = "pageNo") int pageNo,Model model){//,@PathVariable(value = "pageSize") int pageSize) {
+		public String findPaginated( @PathVariable(value = "pageNo") int pageNo,Model model,@RequestParam(name="motCle",defaultValue="")String mc){//,@PathVariable(value = "pageSize") int pageSize) {
 		int  pageSize=2;
 			//Pageable pageable = PageRequest.of(p,1);
-			Page < Client> page = clientservice.findPagination(pageNo,pageSize);
+			Page < Client> page = clientservice.findPagination(pageNo,pageSize,"%"+mc+"%");
 			//@SuppressWarnings("deprecation")
 			//Page<Client> page = clientrepository.findAll(pageable);
 				List<Client> clients = page.getContent();
@@ -146,7 +147,7 @@ public class ClientController {
 			model.addAttribute("totalPages",page.getTotalPages());
 			model.addAttribute("totalItems",page.getTotalElements());
 			model.addAttribute("clients",clients);
-	
+			model.addAttribute("motCle",mc);
 			return "listclient";
 			}
 	  

@@ -53,11 +53,11 @@ public class LogicielService {
 	    	return logiciel;	
 	    }
 	    
-	    public Page<logiciel> findPagination(int pageNo, int pagesize){
+	    public Page<logiciel> findPagination(int pageNo, int pagesize,String mc){
 	    	
 	    	Pageable pageable= PageRequest.of(pageNo - 1, pagesize);
 	    	
-	    	return this.logicielrepository.findAll(pageable);
+	    	return this.logicielrepository.findAll(mc,pageable);
 	    }
 	    
 	    
