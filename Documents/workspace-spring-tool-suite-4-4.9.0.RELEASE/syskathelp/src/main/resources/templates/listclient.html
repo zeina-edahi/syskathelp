@@ -78,7 +78,7 @@ table.table th i {
     cursor: pointer;
 }
 table.table td:last-child {
-    width: 130px;
+    width: 160px;
 }
 table.table td a {
     color: #a0a5b1;
@@ -93,6 +93,9 @@ table.table td a.edit {
 }
 table.table td a.delete {
     color: #E34724;
+}
+table.table td a.list {
+    color: #A9CCE3;
 }
 
 
@@ -353,6 +356,7 @@ function doneFunction() {
 						<td> <a  th:href="@{addclienttologiciel(idC=${c.idC})}" class="add" title="Ajouter logiciel" data-toggle="tooltip"> <i class="fa fa-file-code-o"></i></a>
                             <a onclick="return confirm('Vous êtes sûr ?')" th:href="@{supprimer(idC=${c.idC})}" class="delete" title="Supprimer client" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
                         <a th:href="@{editclient(idC=${c.idC})}" class="edit" title="Modifier client" data-toggle="tooltip"> <i class="fa fa-edit"></i></a>
+                        <a  th:href="@{listclientlogiciel(idC=${c.idC})}" class="list" title="List logiciel" data-toggle="tooltip"> <i class="fa fa-list"></i></a>
                         </td>
                     </tr>
                     

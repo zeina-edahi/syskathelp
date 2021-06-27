@@ -38,5 +38,4 @@ public Client getOnes(@Param("x")String nom);
 	@Query("select e from Client e where e.nomsociete like :x OR e.nomcomplet like :x")
 	public List<Client> chercherClients(@Param("x")String mc);
 	
-	
 }

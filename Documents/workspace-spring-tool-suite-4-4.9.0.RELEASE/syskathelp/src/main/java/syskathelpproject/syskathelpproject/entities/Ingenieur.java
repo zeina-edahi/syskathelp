@@ -25,7 +25,8 @@ public Long getIdI() {
 	public void setIdI(Long idI) {
 		this.idI = idI;
 	}
-String nom;
+public String noming;
+
 String prenom;
 public String email ;
 public int telephone;
@@ -40,21 +41,21 @@ public void setLogiciels( List<logiciel> logiciels1) {
 	this.logiciels1 = logiciels1;
 }
 public Ingenieur() {}
-
-public Ingenieur(String nom, String prenom,String email, int telephone) {
+public String getNoming() {
+	return noming;
+}
+public void setNoming(String noming) {
+	this.noming = noming;
+}
+public Ingenieur(String noming, String prenom,String email, int telephone) {
 	super();
 	
-	this.nom = nom;
+	this.noming = noming;
 	this.prenom = prenom;
 	this.email = email;
 	this.telephone = telephone;
 }
-public String getNom() {
-	return nom;
-}
-public void setNom(String nom) {
-	this.nom = nom;
-}
+
 public String getPrenom() {
 	return prenom;
 }

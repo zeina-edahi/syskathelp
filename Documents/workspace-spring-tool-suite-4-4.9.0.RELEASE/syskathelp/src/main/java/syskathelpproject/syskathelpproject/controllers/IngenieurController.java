@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import syskathelpproject.syskathelpproject.dao.IngenieurRepository;
 import syskathelpproject.syskathelpproject.dao.LogicielRepository;
+
 import syskathelpproject.syskathelpproject.entities.Ingenieur;
 import syskathelpproject.syskathelpproject.entities.logiciel;
 import syskathelpproject.syskathelpproject.services.IngenieurService;
@@ -114,4 +115,23 @@ private LogicielRepository  logicielrepository;
 			model.addAttribute("motCle",mc);
 			return "listingenieur";
 			}
+	  
+	  @RequestMapping(value="/listingenieurlogiciel", method={RequestMethod.POST, RequestMethod.GET})
+	  
+		public String listingenieurlogiciel(Long idI,Model model) {
+			//Client client1 = clientrepository.getOne(ID);
+		
+			List<String> logiciel = logicielrepository.nomlogicielIngenieur(idI);
+			
+			Ingenieur ingenieur = ingenieurrepository.getIngenieurById(idI);
+			
+			String noming = ingenieur.getNoming();
+		
+			model.addAttribute("logiciel",logiciel);
+			model.addAttribute(logiciel);
+			model.addAttribute("noming",noming);
+			model.addAttribute(noming);
+			return "listclientlogiciel";
+		}
 }
+

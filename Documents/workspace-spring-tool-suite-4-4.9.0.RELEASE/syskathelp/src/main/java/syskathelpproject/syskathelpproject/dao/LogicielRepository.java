@@ -37,12 +37,13 @@ public logiciel getOnes(@Param("x")String nom);
 	@Transactional
 	@Query(value="insert into ing_logiciel (idi,idl) values (?,?)",nativeQuery=true)
 	public void addlogicieltoingenieur(Long idi,Long idl);
-	@Query(value="select nom from logiciel e,client_logiciel c,client s where e.idl = c.idl AND c.idc=s.idc",nativeQuery=true)
-	public List<String> nomlogicielclient();
-	@Query(value="select version from logiciel e,client_logiciel c,client s where e.idl = c.idl AND c.idc=s.idc",nativeQuery=true)
-	public List<String> versionlogicielclient();
-	@Query(value="select tech from logiciel e,client_logiciel c,client s where e.idl = c.idl AND c.idc=s.idc",nativeQuery=true)
-	public List<String> techlogicielclient();
+	
+	@Query(value="select nom from logiciel e,client_logiciel c where e.idl = c.idl AND c.idc= :x",nativeQuery=true)
+	public List<String> nomlogicielclient(@Param("x")Long idC);
+	
+	@Query(value="select nom from logiciel e,ing_logiciel c where e.idl = c.idl AND c.idi= :x",nativeQuery=true)
+	public List<String> nomlogicielIngenieur(@Param("x")Long idI);
+	
 	@Query(value="SELECT count(l.idl) from logiciel l",nativeQuery=true)
 	public long count();
 	

@@ -29,7 +29,7 @@ private void headerLine(){
 	font.setFontHeight(16);
 	cellstyle.setFont(font);
 	createCell(row,0,"ID",cellstyle);
-	createCell(row,1,"NOM ",cellstyle);
+	createCell(row,1,"Noming",cellstyle);
 	createCell(row,2,"Prenom",cellstyle);
 	createCell(row,3,"Email",cellstyle);
 	createCell(row,4,"Telephone",cellstyle);
@@ -66,7 +66,7 @@ for(Ingenieur Ingenieurs: Ingenieurs) {
 	Row row = xssfsheet.createRow(rowCount++);
 	int countColumn =0;
 	createCell(row,countColumn++,Ingenieurs.getIdI(),style);
-	createCell(row,countColumn++,Ingenieurs.getNom(),style);
+	createCell(row,countColumn++,Ingenieurs.getNoming(),style);
 	createCell(row,countColumn++,Ingenieurs.getPrenom(),style);
 	createCell(row,countColumn++,Ingenieurs.getEmail(),style);
 	createCell(row,countColumn++,Ingenieurs.getTelephone(),style);

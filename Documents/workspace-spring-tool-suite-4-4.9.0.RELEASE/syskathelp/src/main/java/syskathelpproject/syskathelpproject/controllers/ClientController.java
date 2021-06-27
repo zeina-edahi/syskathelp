@@ -151,5 +151,20 @@ public class ClientController {
 			return "listclient";
 			}
 	  
-	
+	  @RequestMapping(value="/listclientlogiciel", method={RequestMethod.POST, RequestMethod.GET})
+	  
+		public String listeclientlogiciel(Long idC,Model model) {
+			//Client client1 = clientrepository.getOne(ID);
+		
+			List<String> logiciel = logicielrepository.nomlogicielclient(idC);
+			
+			Client client = clientrepository.getclientById(idC);
+			
+			String nomsociete = client.getnomsociete();
+			model.addAttribute("logiciel",logiciel);
+			model.addAttribute(logiciel);
+			model.addAttribute("nomsociete",nomsociete);
+			model.addAttribute(nomsociete);
+			return "listclientlogiciel";
+		}
 }

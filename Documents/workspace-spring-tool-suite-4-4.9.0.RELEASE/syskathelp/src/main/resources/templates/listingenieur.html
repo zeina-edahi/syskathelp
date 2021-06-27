@@ -79,7 +79,7 @@ table.table th i {
     cursor: pointer;
 }
 table.table td:last-child {
-    width: 130px;
+    width: 160px;
 }
 table.table td a {
     color: #a0a5b1;
@@ -95,7 +95,9 @@ table.table td a.edit {
 table.table td a.delete {
     color: #E34724;
 }
-
+table.table td a.list {
+    color: #A9CCE3;
+}
 
 table.table td i {
     font-size: 19px;
@@ -266,7 +268,7 @@ function annulerFunction() {
   <div class="container">
 
     <i class="fa fa-id-card icons"> </i>
-    <input class="in" type="text" placeholder=" Nom " name="nom"   required>
+    <input class="in" type="text" placeholder=" Nom " name="noming"   required>
 	<br> <br>
 	 <i class="fa fa-id-card icons"> </i>
     <input class="in"  type="text" placeholder=" Prenom" name="prenom"   required>
@@ -280,7 +282,7 @@ function annulerFunction() {
 
 	<br> <br>
     <button type="submit" >Ajouter</button>
-      <button  class="annuler" onclick="annulerFunction()" >Annuller</button>
+      <button  class="annuler" onclick="annulerFunction()" >Annuler</button>
 	
    </div>
 </form>
@@ -296,7 +298,8 @@ function annulerFunction() {
                     <div class="col-sm-9">
                    
                     <a  onclick="myFunction()"  class="btn "><i class="material-icons">&#xE147;</i> <span>Ajouter</span></a>
-                        <a th:href="@{/exportingenieur}" class="btn "><i class="material-icons">&#xE24D;</i> <span>Exporter</span></a>
+                        <a th:href="@{/exportingenieur}" class="btn "><i class="material-icons">&#xE24D;</i> <span>Excel</span></a>
+                          <a th:href="@{/exportingenieurpdf}" class="btn "><i class="material-icons">&#xE24D;</i> <span>PDF</span></a>
                          <form th:action="@{listingenieur1}" method="get">
                         <div class="search-box">
                             <i class="material-icons">&#xE8B6;</i>
@@ -325,7 +328,7 @@ function annulerFunction() {
                 <tbody>
                      <tr th:each="i:${ingenieurs}">
                      
-                        <td th:text="${i.nom}"></td>
+                        <td th:text="${i.noming}"></td>
                         <td th:text="${i.prenom}"></td>
                         <td th:text="${i.email}"></td>
                       
@@ -335,6 +338,7 @@ function annulerFunction() {
                             <a  onclick="return confirm('Vous êtes sûr que?')" th:href="@{supprimerI(idI=${i.idI})}"class="delete" title="Supprimer client" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
 
                         <a th:href="@{editingenieur(idI=${i.idI})}" class="edit" title="Modifier ingenieur" data-toggle="tooltip"> <i class="fa fa-edit"></i></a>
+                        <a  th:href="@{listingenieurlogiciel(idI=${i.idI})}" class="list" title="List logiciel" data-toggle="tooltip"> <i class="fa fa-list"></i></a>
                         </td>
                     </tr>
                     

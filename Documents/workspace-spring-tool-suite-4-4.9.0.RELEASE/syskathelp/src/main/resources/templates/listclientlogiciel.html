@@ -242,54 +242,40 @@ button:hover {
 <br>
 <div class="main-content">
 
+
+	
  
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
-               
+               <h2> Liste Logiciels de <span th:text="${nomsociete}"> </span></h2>
             </div>
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
                      
-                      <th>Nom </th>
-                        <th>Societe</th>
-                        <th>Email </th>
-                        <th>Adress</th>
-                        <th>Telephone </th>
-                    
-                        <th>logiciel </th>
+                      <th>Logiciel </th>
+                       
+         
                 </tr>
                 </thead>
                 <tbody>
-                 <tr th:each="c:${logiciel}"  >
+                 <tr th:each="l:${logiciel}"  >
                   
-                        <td th:text="${c.nom}"></td>
-                        <td th:text="${c.nomsociete}"></td>
-                        <td th:text="${c.email}"></td>
-                        <td th:text="${c.address}"></td>
-                        <td th:text="${c.telephone}"></td>
-						   <td th:text="${c.telephone}"></td>
-						    <td th:text="${logiciel}"></td>
-                    </tr>
+                        <td th:text="${l}"></td>
+                        </tr>  
+                        
+                        
+                    
                     
                 </tbody>
             </table>
-           <div class="clearfix">
-                <div class="hint-text"></div>
-<ul class="pagination">
-
-<li  th:each="p:${pages}" th:class="${p==pageCourante}?active:''" >
-<a th:text="${p}" th:href="@{listclient(p=${p},motCle=${motCle})}" class="page-link"></a>
-</li>
- 
-</ul>
-  </div>
+           
         </div>
     </div>  
-
-
- </div> 
+</div>
+</div>
+  
 </body>
 </html>
