@@ -126,12 +126,13 @@ private LogicielRepository  logicielrepository;
 			Ingenieur ingenieur = ingenieurrepository.getIngenieurById(idI);
 			
 			String noming = ingenieur.getNoming();
-		
+	
 			model.addAttribute("logiciel",logiciel);
 			model.addAttribute(logiciel);
 			model.addAttribute("noming",noming);
 			model.addAttribute(noming);
-			return "listclientlogiciel";
+			
+			return "listingenieurlogiciel";
 		}
 }
 
