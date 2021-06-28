@@ -131,7 +131,7 @@ public class ClientController {
 	
 	  @GetMapping(value="/listclient{pageNo}")
 		public String findPaginated( @PathVariable(value = "pageNo") int pageNo,Model model,@RequestParam(name="motCle",defaultValue="")String mc){//,@PathVariable(value = "pageSize") int pageSize) {
-		int  pageSize=2;
+		int  pageSize=5;
 			//Pageable pageable = PageRequest.of(p,1);
 			Page < Client> page = clientservice.findPagination(pageNo,pageSize,"%"+mc+"%");
 			//@SuppressWarnings("deprecation")

@@ -309,7 +309,7 @@ function annulerFunction() {
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                      
+                        <th>ID </th>
                          <th>Logiciel </th>
                         <th>version </th>
                        <th>Technologies </th>
@@ -319,7 +319,7 @@ function annulerFunction() {
                 <tbody>
                     <tr th:each="l:${logiciels}">
                      
-                       
+                        <td th:text="${l.idL}"></td>
                        <td th:text="${l.nom}"></td>
                         <td th:text="${l.version}"></td>
                         <td th:text="${l.tech}"></td>

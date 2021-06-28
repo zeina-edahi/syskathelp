@@ -314,7 +314,7 @@ function annulerFunction() {
                 <thead>
                     <tr>
                       
-                        
+                               <th>ID </th>
                         <th>Nom </th>
                         <th>Prenom</th>
                         <th>Email </th>
@@ -327,7 +327,7 @@ function annulerFunction() {
                 </thead>
                 <tbody>
                      <tr th:each="i:${ingenieurs}">
-                     
+                     <td th:text="${i.idI}"></td>
                         <td th:text="${i.noming}"></td>
                         <td th:text="${i.prenom}"></td>
                         <td th:text="${i.email}"></td>
